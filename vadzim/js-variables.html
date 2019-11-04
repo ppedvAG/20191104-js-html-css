@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js-variables</title>
+</head>
+
+<body>
+    <script>
+        /* deklarieren */
+        let l;
+        var v;
+        // const c; // SyntaxError: missing = in const declaration
+
+        /* initialisieren */
+        l = 4;
+        v = 5;
+
+        /* beides zusammen */
+        let letVar = 'text1';
+        var varVar = 'text2';
+        const c = 0.19;
+
+        /* reinitialisieren */
+        var v = 3;
+        // let l = 2; // redeclaration of let l
+        // const c = 1; // SyntaxError: redeclaration of const c
+
+        /* Variablen und das globale Objekt window */
+        console.log(window);
+
+        /* SCOPES */
+        /* scope von let */
+        let b = 5;
+        console.log('b vor {} ' + b);
+        {
+            let b = 7;
+            console.log('b in {} nach b=7 ' + b);
+        }
+        console.log('b nach {} ' + b);
+
+        /* scope von var */
+        var a = 2;
+        console.log('a vor {} ' + a);
+        {
+            var a = 3;
+            console.log('a in {} nach a=3 ' + a);
+        }
+        console.log('a nach {} ' + a);
+
+        /* CONST & CONST VALUE */
+        const e = 8;
+        // e = 5; // TypeError: invalid assignment to const `e'
+        const arr = [4, 5, 6];
+        arr[0] = 8;
+        console.log(arr);
+    </script>
+</body>
+
+</html>

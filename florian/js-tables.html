@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js-tables</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <script>       
+            let divsArr = document.getElementsByTagName('div'); //gibt Array mit allen divs zurück
+            let varDiv = divsArr[0];
+            // varBody.textContent = '<h1>Überschrift</h1>';
+            // varDiv.innerHTML = '<h1>Überschrift</h1>';
+    
+            // table, caption, thead, tbody
+    
+            // console.log(navigator.plugins);
+    
+            /*         varBody.innerHTML = 'Plugin(s) <br>' +
+                        '<table id="pluginTable"><thead>' +
+                        '<tr><th>Name</th><th>Filename</th><th>Description</th><th>Version</th></tr>' +
+                        '</thead><tbody></tbody></table>';
+            
+                    let table = pluginTable;
+            
+                    for (let i = 0; i < navigator.plugins.length; i++) {
+                        let newRow = table.insertRow();
+                        newRow.insertCell().textContent = navigator.plugins[i].name;
+                        newRow.insertCell().textContent = navigator.plugins[i].filename;
+                        newRow.insertCell().textContent = navigator.plugins[i].description;
+                        newRow.insertCell().textContent = navigator.plugins[i].version;
+                    } */
+    
+            function giveUsersAsTable(users) {
+                varDiv.innerHTML = '<h1>Users of json.placeholder</h1>' +
+                    '<table id="usersTable"><thead>' +
+                    '<tr><th>#</th><th>Name</th><th>Email</th></tr>' +
+                    '</thead><tbody></tbody></table>';
+    
+                for (let i = 0; i < users.length; i++) {
+                    let newRow = usersTable.insertRow();
+                    console.log(newRow);
+                    newRow.insertCell().textContent = users[i].id;
+                    newRow.insertCell().textContent = users[i].name;
+                    newRow.insertCell().textContent = users[i].email;
+                }
+            }
+    
+            let varDiv2 = document.getElementsByTagName('div')[1];
+    
+            function giveTodosAsTable(todos) {
+                varDiv2.innerHTML = '<h1>Todos of json.placeholder</h1>' +
+                    '<table id="todosTable"><thead>' +
+                    '<tr><th>#</th><th>Title</th><th>Completed</th></tr>' +
+                    '</thead><tbody></tbody></table>';
+    
+                for (let i = 0; i < todos.length; i++) {
+                    let newRow = todosTable.insertRow();
+                    console.log(newRow);
+                    newRow.insertCell().textContent = todos[i].id;
+                    newRow.insertCell().textContent = todos[i].title;
+                    newRow.insertCell().textContent = todos[i].completed;
+                }
+            }
+    
+    
+    
+    
+    
+            // for (let i = 0; i < navigator.plugins.length; i++) {}
+    
+            // insertRow()
+            // insertCell()
+    
+            fetch('https://jsonplaceholder.typicode.com/users')
+                .then(response => response.json())
+                .then(json => giveUsersAsTable(json))
+    
+            fetch('https://jsonplaceholder.typicode.com/todos')
+                .then(response => response.json())
+                .then(json => giveTodosAsTable(json))
+
+    </script>
+</body>
+</html>

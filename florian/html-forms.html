@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>html-forms</title>
+</head>
+<body>
+    <form action="#">
+        <h1>fieldset</h1>
+        <p>Eingabe aus Input wird bei Klick auf Button in Output andgezeigt.</p>
+        <fieldset>
+            <legend>NAME</legend>
+                <label for="fname">Vorname</label>
+                <input id="fname" type="text">
+                <label for="nname">Nachname</label>
+                <input id="nname" type="text">
+                <button onclick="showInputValue()">zeige die Eingabe</button>
+        </fieldset>
+        <output id="outp"></output>
+        <hr>
+        <h1>input:color</h1>
+        <input type="color" name="clr" id="crlId">
+        <hr>
+        <h1>input:radio</h1>
+        <h3>Matrixfrage links / rechts</h3>
+        <p>Inputs von type radio sind durch Attr name verbunden.</p>
+        <div><label for="left">LINKS</label><input type="radio" id="left" name="leftRight"></div>
+        <div><label for="right">RECHTS</label><input type="radio" id="right" name="leftRight"></div>
+        <hr>
+        <h1>input:checkbock</h1>
+        <h3>Pizzaextras</h3>
+        <div>
+            <label for="cheese">Käse</label><input type="checkbox" id="cheese" name="inpCheck" value="Käse">
+        </div>
+        <div>
+            <label for="salami">Salami</label><input type="checkbox" id="salami" name="inpCheck" value="Salami">
+        </div>
+        <div>
+            <label for="mushrooms">Pilze</label><input type="checkbox" id="mushrooms" name="inpCheck" value="Pilze">
+        </div>
+        <div>
+            <label for="pineapple">Ananas</label><input type="checkbox" id="pineapple" name="inpCheck" value="Ananas">
+        </div>
+        <button type="button" onclick="showPizza()" id="btnPizza">OK</button>
+        <output id="outPizza"></output>
+        <hr>
+        <h1>input:range</h1>
+        <h3>Hotelzimmerabfrage</h3>
+        <div>
+            <label for="inpPrice">Zimmerpreis: </label>
+            <span id="minSpan"></span>
+            <input type="range" id="inpPrice" min="20" max="200" step="5" value="70" oninput="showPrice()">
+            <span id="maxSpan"></span>
+            <span>| Ihr ausgewählter Preis: </span>
+            <output id="outpPrice"></output>
+        </div>
+    </form>
+    <script>
+        function showInputValue(){
+            let text;
+            text = fname.value + ' ' + nname.value;
+            outp.textContent = text;
+        }
+        minSpan.textContent = inpPrice.min;
+        maxSpan.textContent = inpPrice.max;
+        function showPrice(){
+            outpPrice.textContent = inpPrice.value;
+        }
+        inpPrice.addEventListener('input', showPrice, true);
+        function showPizza(){
+            let text = 'Eine ';
+            let myArray = document.getElementsByName('inpCheck');
+            myArray.forEach(element => {
+                if (element.checked === true){
+                    text += element.value + ', '
+                }
+            });
+            text += ' Pizza.';
+            outPizza.textContent = text;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css-selectors</title>
+    <style>
+        /* Universalselektor */
+        * {
+            color: blue;
+        }
+
+        /* Typselektor */
+        div {
+            font-size: 20px;
+        }
+
+        /* id-Selektor */
+        #boldText {
+            font-weight: bold;
+        }
+
+        /* class-Selektor */
+        .borderClass {
+            /* font-weight: bold; */
+            border: 1px solid red;
+        }
+
+        /* KOMBINATOREN */
+        /* Auflisten von mehreren Selektoren */
+        h1, h2 {
+            text-decoration: underline;
+        }
+
+        /* Geschwister-Selektor */
+        h2+p {
+            font-style: italic;
+        }
+
+        /* Vorfahr-Nachfahr-Selektor */
+        .borderClass div {
+            color: greenyellow;
+        }
+
+        /* Eltern-Kind-Selektor */
+        .borderClass > div {
+            color: rgb(70, 117, 0);
+        }
+        
+
+
+
+    </style>
+</head>
+
+<body>
+    <h1>heading 1</h1>
+    <h1>heading 1</h1>
+
+    <h2>heading 2</h2>
+    <h2>heading 2</h2>
+
+    <p>paragraph</p>
+    <p id="boldText">paragraph</p>
+
+    <div class="borderClass">
+        div ebene 1
+        <div>
+            div ebene 2
+            <div>div ebene 3</div>
+            <div>div ebene 3</div>
+        </div>
+        <div>
+            div ebene 2
+            <div>div ebene 3</div>
+            <div>div ebene 3</div>
+        </div>
+    </div>
+
+    <div class="borderClass">
+        div ebene 1
+        <div>
+            div ebene 2
+            <div>div ebene 3</div>
+            <div>div ebene 3</div>
+        </div>
+        <div>
+            div ebene 2
+            <div>div ebene 3</div>
+            <div>div ebene 3</div>
+        </div>
+    </div>
+
+</body>
+
+</html>

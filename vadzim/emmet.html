@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>emmet</title>
+</head>
+<body>
+    <a href="https://emmet.io/">Link zu Emmet</a>
+
+    <h1>Inhalt / Text</h1>
+    <!-- h1{heading 1} -->
+    <h1>heading 1</h1>
+
+    <hr>
+    <h1>Verschachtelung / Eltern-Kind</h1>
+    <!-- div>h1{heading 1 in div} -->
+    <div>
+        <h1>heading 1 in div</h1>
+    </div>
+    <hr>
+
+    <h1>Wiederholung</h1>
+    <!-- div>h1{heading 1 in div}*3 -->
+    <div>
+        <h1>heading 1 in div</h1>
+        <h1>heading 1 in div</h1>
+        <h1>heading 1 in div</h1>
+    </div>
+    <hr>
+
+    <h1>Attribute</h1>
+    <!-- div>img[src="http:picsum.photos/200/?random"]*3 -->
+    <div>
+        <img src="http:picsum.photos/200/?random" alt="ein Bild">
+        <img src="http:picsum.photos/200/?random" alt="ein Bild">
+        <img src="http:picsum.photos/200/?random" alt="ein Bild">
+    </div>
+    <hr>
+
+    <h1>Nummerierung</h1>
+    <!-- div>h2{Abschnitt $$}*3 -->
+    <div>
+        <h2>Abschnitt 01</h2>
+        <h2>Abschnitt 02</h2>
+        <h2>Abschnitt 03</h2>
+    </div>
+    <hr>
+
+    <h1>IDs</h1>
+    <!-- div#container>div{div in container} -->
+    <div id="container">
+        <div>div in container</div>
+    </div>
+    <hr>
+
+    <h1>Klassen</h1>
+    <!-- div.divClass*2 -->
+    <div class="divClass">Div mit Klasse</div>
+    <div class="divClass">Div mit Klasse</div>
+    <hr>
+
+    <h1>Random Text</h1>
+    <!-- ul>lorem5*5 -->
+    <!-- ul - unordered list, li - list item -->
+    <ul>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Corrupti, officia? Numquam, optio soluta!</li>
+        <li>Eveniet, corrupti quas? Nulla, cupiditate?</li>
+        <li>Rem velit obcaecati vel vitae!</li>
+        <li>Deleniti quam ipsum laudantium nemo.</li>
+    </ul>
+    <hr>
+
+    <h1>Geschwister</h1>
+    <!-- div>h1{h1}+p{p} -->
+    <div>
+        <h1>h1</h1>
+        <p>p</p>
+    </div>
+
+
+    <!-- table>caption{table caption}+(thead>tr>th{thead cell $}*4)+(tbody>(tr>td{table data $}*4)*4)+(tfoot>tr>td{tfoot cell $}*4) -->
+    <table>
+        <caption>table caption</caption>
+        <thead>
+            <tr>
+                <th>thead cell 1</th>
+                <th>thead cell 2</th>
+                <th>thead cell 3</th>
+                <th>thead cell 4</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>table data 1</td>
+                <td>table data 2</td>
+                <td>table data 3</td>
+                <td>table data 4</td>
+            </tr>
+            <tr>
+                <td>table data 1</td>
+                <td>table data 2</td>
+                <td>table data 3</td>
+                <td>table data 4</td>
+            </tr>
+            <tr>
+                <td>table data 1</td>
+                <td>table data 2</td>
+                <td>table data 3</td>
+                <td>table data 4</td>
+            </tr>
+            <tr>
+                <td>table data 1</td>
+                <td>table data 2</td>
+                <td>table data 3</td>
+                <td>table data 4</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>tfoot cell 1</td>
+                <td>tfoot cell 2</td>
+                <td>tfoot cell 3</td>
+                <td>tfoot cell 4</td>
+            </tr>
+        </tfoot>
+    </table>
+
+
+
+</body>
+</html>

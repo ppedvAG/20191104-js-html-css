@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js-basics</title>
+</head>
+<body>
+    <p>Eingabe aus Input wird beim Klick auf Button in Output angezeigt</p>
+    <label for="fname">VORNAME</label>
+    <input id="fname" type="text">
+    <label for="lname">NACHNAME</label>
+    <input id="lname" type="text">
+    <button onclick="showInputValue()">zeige die Eingabe</button>
+    <!-- <button type="button" onclick="showInputValue()">zeige die Eingabe</button> -->
+    <output id="outp"></output>
+
+    <script>
+        function showInputValue() {
+            let text;
+            text = fname.value + ' ' + lname.value;
+            outp.textContent = text;
+        }
+    
+
+    </script>
+    
+</body>
+</html>

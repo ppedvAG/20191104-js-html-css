@@ -67,6 +67,20 @@
         </div>
         <hr>
 
+        <h1>min max & try catch</h1>
+        <p>Beim Alter 7-16 - Kindermarathon,
+                17-65 - Marathon,
+                65-75 - Marathon mit Zusatzversicherung,
+                75-... - Teilnahme nicht möglich
+            </p>
+            <label for="inpAge">Ihr Alter:</label>
+            <!-- Mit Attribut for bei Label und id bei input werden diese beiden 
+            Elemente verbunde. Beim Klicken auf label-Text erscheint Kursor im Input-Feld -->
+            <input type="number" id="inpAge" min="7" max="99">
+            <button type="button" id="btnAge">OK</button>
+            <output id="outInfo"></output>
+            <hr>
+
 
 
     </form>
@@ -94,17 +108,50 @@
             // console.log('hallo aus getSelected');
             const extrasArr = document.getElementsByName('inpCheck'); // NodeList
             console.log(extrasArr);
-            // extrasArr.forEach(function (el) { return outPizza.innerText += el.checked; });
-            // var checkedExtras; ???warum war das Array nach der forEach undefined???
-            /* forEach gibt undefined zurück!!! ??? */
+            // extrasArr.forEach(function (el) { return outPizza.innerText += el.checked; });   
             extrasArr.forEach(el => {
                 if (el.checked === true) {
                     outPizza.textContent += el.value + ' ';
                 }
-
             });
-
         }
+
+        /* ////////////try catch//////////// */
+        function trycatch() {
+            let inpValue = inpAge.value;
+            let errorMessage;
+            console.log(typeof inpValue);
+
+
+            try {
+                /* beim leeren Input und beim Text kommt ein leeres String zurück */
+                if (inpValue === "") {
+                    throw 'Bitte geben Sie eine Zahl ein';
+                }
+                if (inpValue < 7) {
+                    throw 'zu jung';
+                }
+                if (inpValue > 75) {
+                    throw 'Teilnahme nicht möglich';
+                }
+                
+            }
+            catch (errorMessage) {
+                outInfo.textContent = 'Error Message: ' + errorMessage;                
+            }
+            finally {
+                if (inpValue >= 7 && inpValue <= 16) {
+                    outInfo.textContent = 'Willkommen beim Kindermarathon';
+                }
+                if (inpValue >= 17 && inpValue <= 65) {
+                    outInfo.textContent = 'Willkommen beim Marathon';
+                }
+                if (inpValue >= 66 && inpValue <= 75) {
+                    outInfo.textContent = 'Willkommen beim Marathon, bitte beachten Sie die Anforderungen für Senioren';
+                }
+            }
+        }
+        btnAge.addEventListener('click', trycatch, true);
 
     </script>
 </body>

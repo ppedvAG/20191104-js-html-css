@@ -6,6 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>js-tables</title>
+    <style>
+        body {
+            font-size: 2em;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            border: thin solid;
+            padding: 5px;
+        }
+
+        /* Pseudo-Selektoren */
+        /* https://www.w3schools.com/cssref/css_selectors.asp */
+        tbody tr:nth-child(even) {
+            background-color: aquamarine;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: rgb(0, 219, 146);
+        }
+    </style>
 </head>
 
 <body>
@@ -19,20 +44,37 @@
 
         console.log(navigator.plugins);
 
-        varBody.innerHTML = 'Plugin(s) <br>' +
-            '<table id="pluginTable"><thead>' +
-            '<tr><th>Name</th><th>Filename</th><th>Description</th><th>Version</th></tr>' +
-            '</thead><tbody></tbody></table>';
+        /*         varBody.innerHTML = 'Plugin(s) <br>' +
+                    '<table id="pluginTable"><thead>' +
+                    '<tr><th>Name</th><th>Filename</th><th>Description</th><th>Version</th></tr>' +
+                    '</thead><tbody></tbody></table>';
+        
+                let table = pluginTable;
+        
+                for (let i = 0; i < navigator.plugins.length; i++) {
+                    let newRow = table.insertRow();
+                    newRow.insertCell().textContent = navigator.plugins[i].name;
+                    newRow.insertCell().textContent = navigator.plugins[i].filename;
+                    newRow.insertCell().textContent = navigator.plugins[i].description;
+                    newRow.insertCell().textContent = navigator.plugins[i].version;
+                } */
 
-        let table = pluginTable;
+        function giveUsersAsTable(users) {
+            varBody.innerHTML = '<h1>Users of json.placeholder</h1>' +
+                '<table id="usersTable"><thead>' +
+                '<tr><th>#</th><th>Name</th><th>Email</th></tr>' +
+                '</thead><tbody></tbody></table>';
 
-        for (let i = 0; i < navigator.plugins.length; i++) {
-            let newRow = table.insertRow();
-            newRow.insertCell().textContent = navigator.plugins[i].name;
-            newRow.insertCell().textContent = navigator.plugins[i].filename;
-            newRow.insertCell().textContent = navigator.plugins[i].description;
-            newRow.insertCell().textContent = navigator.plugins[i].version;
+            for (let i = 0; i < users.length; i++) {
+                let newRow = usersTable.insertRow();
+                console.log(newRow);
+                newRow.insertCell().textContent = users[i].id;
+                newRow.insertCell().textContent = users[i].name;
+                newRow.insertCell().textContent = users[i].email;
+            }
         }
+
+
 
 
 
@@ -43,7 +85,7 @@
 
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(response => response.json())
-            .then(json => console.log(json))
+            .then(json => giveUsersAsTable(json))
 
     </script>
 </body>

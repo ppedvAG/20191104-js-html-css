@@ -6,11 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>js-tables</title>
-    <style>
-        body {
-            font-size: 2em;
-        }
-
+    <style>        
         table {
             border-collapse: collapse;
         }
@@ -23,26 +19,29 @@
 
         /* Pseudo-Selektoren */
         /* https://www.w3schools.com/cssref/css_selectors.asp */
-        tbody tr:nth-child(even) {
+        tr:nth-child(even) {
             background-color: aquamarine;
         }
 
-        tbody tr:nth-child(odd) {
-            background-color: rgb(0, 219, 146);
+        tr:nth-child(odd) {
+            background-color: rgb(203, 255, 238);
         }
     </style>
 </head>
 
 <body>
+    <div></div>
+    <hr>
+    <div></div>
 
     <script>
-        let varBody = document.getElementsByTagName('body')[0];
-        //varBody.textContent = '<h1>Überschrift</h1>';
-        varBody.innerHTML = '<h1>Überschrift</h1>';
+        let varDiv = document.getElementsByTagName('div')[0];
+        // varBody.textContent = '<h1>Überschrift</h1>';
+        // varDiv.innerHTML = '<h1>Überschrift</h1>';
 
         // table, caption, thead, tbody
 
-        console.log(navigator.plugins);
+        // console.log(navigator.plugins);
 
         /*         varBody.innerHTML = 'Plugin(s) <br>' +
                     '<table id="pluginTable"><thead>' +
@@ -60,7 +59,7 @@
                 } */
 
         function giveUsersAsTable(users) {
-            varBody.innerHTML = '<h1>Users of json.placeholder</h1>' +
+            varDiv.innerHTML = '<h1>Users of json.placeholder</h1>' +
                 '<table id="usersTable"><thead>' +
                 '<tr><th>#</th><th>Name</th><th>Email</th></tr>' +
                 '</thead><tbody></tbody></table>';
@@ -71,6 +70,23 @@
                 newRow.insertCell().textContent = users[i].id;
                 newRow.insertCell().textContent = users[i].name;
                 newRow.insertCell().textContent = users[i].email;
+            }
+        }
+
+        let varDiv2 = document.getElementsByTagName('div')[1];
+
+        function giveTodosAsTable(todos) {
+            varDiv2.innerHTML = '<h1>Todos of json.placeholder</h1>' +
+                '<table id="todosTable"><thead>' +
+                '<tr><th>#</th><th>Title</th><th>Completed</th></tr>' +
+                '</thead><tbody></tbody></table>';
+
+            for (let i = 0; i < todos.length; i++) {
+                let newRow = todosTable.insertRow();
+                console.log(newRow);
+                newRow.insertCell().textContent = todos[i].id;
+                newRow.insertCell().textContent = todos[i].title;
+                newRow.insertCell().textContent = todos[i].completed;
             }
         }
 
@@ -86,6 +102,10 @@
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(response => response.json())
             .then(json => giveUsersAsTable(json))
+
+        fetch('https://jsonplaceholder.typicode.com/todos')
+            .then(response => response.json())
+            .then(json => giveTodosAsTable(json))
 
     </script>
 </body>

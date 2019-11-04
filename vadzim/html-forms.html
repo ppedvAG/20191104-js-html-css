@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>html-forms</title>
+</head>
+
+<body>
+    <form action="#">
+        <h1>fieldset</h1>
+        <p>Eingabe aus Input wird beim Klick auf Button in Output angezeigt</p>
+        <fieldset>
+            <legend>NAME</legend>
+            <label for="fname">VORNAME</label>
+            <input id="fname" type="text">
+            <label for="lname">NACHNAME</label>
+            <input id="lname" type="text">
+            <button onclick="showInputValue()">zeige die Eingabe</button>
+            <!-- <button type="button" onclick="showInputValue()">zeige die Eingabe</button> -->
+        </fieldset>
+        <output id="outp"></output>
+        <hr>
+
+        <h1>input:color</h1>
+        <input type="color" name="clr" id="crlId">
+        <hr>
+
+        <h1>input:radio</h1>
+        <h3>Matrixfrage links / rechts</h3>
+        <p>Inputs von type radio sind durch Attr name verbunden</p>
+        <div><label for="left">LINKS</label><input type="radio" id="left" name="leftRight"></div>
+        <div><label for="right">RECHTS</label><input type="radio" id="right" name="leftRight"></div>
+        <hr>
+
+        <h1>input:checkbox</h1>
+        <h3>Pizzaextras</h3>
+        <div>
+            <label for="cheese">Käse</label>
+            <input type="checkbox" id="cheese" name="inpCheck" value="Käse">
+        </div>
+        <div><label for="salami">Salami</label>
+            <input type="checkbox" id="salami" name="inpCheck" value="Salami">
+        </div>
+        <div><label for="mushrooms">Pilze</label>
+            <input type="checkbox" id="mushrooms" name="inpCheck" value="Pilze">
+        </div>
+        <div><label for="pineapple">Ananas</label>
+            <input type="checkbox" id="pineapple" name="inpCheck" value="Ananas">
+        </div>
+        <button type="button" id="btnPizza">OK</button>
+        <output id="outPizza"></output>
+        <hr>
+
+        <h1>input:range</h1>
+        <h3>Hotelzimmerabfrage</h3>
+        <div>
+            <label for="inpPrice">Zimmerpreis: </label>
+            <span id="minSpan"></span>
+            <input type="range" id="inpPrice" min="20" max="200" step="5" value="70">
+            <!-- <input type="range" id="inpPrice" min="20" max="200" step="5" value="70" oninput="showPrice()"> -->
+            <span id="maxSpan"></span>
+            <span>| Ihr ausgewählter Preis: </span>
+            <output id="outpPrice"></output>
+        </div>
+        <hr>
+
+
+
+    </form>
+    <script>
+        /* /////////////fieldset////////////// */
+        function showInputValue() {
+            let text;
+            text = fname.value + ' ' + lname.value;
+            outp.textContent = text;
+        }
+
+        /* ////////////input:range//////////// */
+        minSpan.textContent = inpPrice.min;
+        maxSpan.textContent = inpPrice.max;
+        function showPrice() {
+            // console.log(inpPrice); // ist ein Objekt, welches dem HTML-Element entspricht
+            outpPrice.textContent = inpPrice.value;
+        }
+        inpPrice.addEventListener('input', showPrice, true);
+
+        /* ////////////input:checkbox//////////// */
+        btnPizza.addEventListener('click', getSelected, true);
+        function getSelected() {
+            outPizza.textContent = '';
+            // console.log('hallo aus getSelected');
+            const extrasArr = document.getElementsByName('inpCheck'); // NodeList
+            console.log(extrasArr);
+            // extrasArr.forEach(function (el) { return outPizza.innerText += el.checked; });
+            // var checkedExtras; ???warum war das Array nach der forEach undefined???
+            /* forEach gibt undefined zurück!!! ??? */
+            extrasArr.forEach(el => {
+                if (el.checked === true) {
+                    outPizza.textContent += el.value + ' ';
+                }
+
+            });
+
+        }
+
+    </script>
+</body>
+
+</html>

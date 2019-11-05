@@ -15,10 +15,14 @@
         <label for="_inputA">ALTER:</label>
         <input id="_inputA" type="number">
     
-        <button onclick="_giveName(); console.log(_einePerson)">OK</button>
-        <output id="_output"></output>
+        <button onclick="_giveName(); console.log(_einePerson)" disabled>OK</button>
+        <button id="btnAP">ADD PERSON</button>
+        <div id="_output"></div>
 
+        <h3>Übung Personen in einem Array speichern und ausgeben</h3>
+        <p>siehe den button add person und die zugehörige Funktion</p>
         <script>
+            /* Ein Objekt mit Objekt-Literal anlegen */
             var _einePerson = { vorname: '', nachname: ''};
 
             function _giveName() {
@@ -27,13 +31,12 @@
                 _einePerson.alter = _inputA.value;
             }
 
-            console.log(typeof _einePerson);            
-            console.log(typeof _inputV);
-            console.log(_inputV);
-
-
+            console.log('typeof _einePerson ' + typeof _einePerson);            
+            console.log('typeof _inputV ' + typeof _inputV);
+            console.log('_inputV ' + _inputV);
 
             /* Konstruktoren */
+            console.info('Konstruktoren')
             function Auto(marke, modell, baujahr) {
                 this.marke = marke;
                 this.modell = modell;
@@ -42,6 +45,8 @@
 
             var _einAuto = new Auto('VW', 'Golf', 1995);
             var _zweitesAuto = new Auto('BMW', 'X2', 2019);
+            // console.log('_einAuto instanceof Auto ' + _einAuto instanceof Auto);
+            // ??? warum oben false, und unten true ?
             console.log(_einAuto instanceof Auto);
 
             /* JS-Objekte sind dynamisch */
@@ -50,14 +55,28 @@
             console.log(_einePerson);
 
             /* ITERATOREN */
+            console.info('iteratoren')
             /* gibt Namen von Properties (Eigenschaften) aus */
             for (let el in _einAuto) {
                 console.log(el);
             }
             /* TypeError: _einAuto is not iterable */
-            for (let el of _einAuto) {
+           /*  for (let el of _einAuto) {
                 console.log(el.value);
+            } */
+
+            /* Übung Personen in einem Array speichern und ausgeben */
+
+            function addPerson() {
+                let people = new Array();
+                people.push({fname: _inputV.value, lname: _inputN.value, age: _inputA.value});
+                _output.innerHTML = `<ol id="peopleList"></ol>`;
+                for (let i = 0; i < people.length; i++) {
+                    peopleList.innerHTML = `<li>${people[i].toString()}</li>`;
+                    /* ??? zu Ende bringen ! */
+                }
             }
+            btnAP.addEventListener('click', addPerson)
 
         
         </script>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js-math</title>
+</head>
+<body>
+        <!-- (h3{$. Method}+p#output$)*5 -->
+        <h3>1. Property PI</h3>
+        <p id="output1"></p>
+    
+        <h3>2. Method random()</h3>
+        <p id="output2"></p>
+    
+        <h3>3. Method random()*number</h3>
+        <p id="output3"></p>
+    
+        <h3>4. Method floor(float)</h3>
+        <p id="output4"></p>
+    
+        <h3>5. Method ceil()</h3>
+        <p id="output5"></p>
+    
+        <h3>6. Method cos()</h3>
+        <p id="output6"></p>
+    
+        <h3>Übung</h3>
+        <button onclick="Würfeln()">Klicke um zu würfeln.</button>
+        <p id="output7"></p>
+
+        <h3>Lottozahlen</h3>
+        <button onclick="Lottozahlen_berechnen()">Lottozahlen ausgeben</button>
+        <p id="output8"></p>
+
+        <h3>Zufallszahlen nach Benutzereingaben</h3>
+        <input id="benutzerZahl" type="number">
+        <button onclick="Zufallszahlen_generieren()">Zahlen generieren</button>
+        <p id="output9"></p>
+        
+        <script>
+            //PI
+            output1.innerText = "Math.PI: " + Math.PI;
+            //random()
+            output2.innerText = "Math.random(): " + Math.random();
+            //random()*number
+            output3.innerText = "Math.random()*3: " + Math.random()*3;
+            //floor(float)
+            output4.innerText = "Math.floor(5.3): " + Math.floor(5.3);
+            //ceil(float)        
+            output5.innerText = "Math.ceil(5.3): " + Math.ceil(5.3);        
+            //cos(Math.PI)    
+            output6.innerText = "Math.cos(Math.PI): " + Math.cos(Math.PI);
+            function Würfeln(){
+                output7.innerText = "Sie haben eine " + (Math.floor(Math.random() * 6) + 1) + " gewürfelt.";
+            }
+            function Lottozahlen_berechnen(){
+                let lottozahlen = new Array();
+                for(i = 0; i < 6; i++){
+                    let zahl = Math.floor(Math.random() * 49) + 1;
+                    lottozahlen.push(zahl);
+                }
+                output8.innerText = "Die heutigen Lottozahlen sind: " + lottozahlen.toString();
+            }
+            function Zufallszahlen_generieren(){
+                let value = benutzerZahl;
+                try{
+
+                    if(value.value === "" || isNaN(value.value)){
+                        throw 'Bitte geben Sie eine Zahl ein.';
+                    }
+                }
+                catch (errorMessage){
+                    output9.textContent = 'Error Message: ' + errorMessage;
+                }
+                if(isNaN(value.value) === false){
+                        let lottozahlen = new Array();
+                    for(i = 0; i < 6; i++){
+                        let zahl = (Math.floor(Math.random() * value.value) + 1);
+                        lottozahlen.push(zahl);
+                    }
+                    output9.innerText = "Ihre Zufallszahlen sind: " + lottozahlen.toString();
+                } 
+            }
+        </script>
+    
+</body>
+</html>

@@ -56,6 +56,19 @@
             <span>| Ihr ausgewählter Preis: </span>
             <output id="outpPrice"></output>
         </div>
+        <h1>min max & try catch</h1>
+        <p>Beim Alter 7-16 - Kindermarathon,
+            17-65 - Marathon,
+            65-75 - Marathon mit Zusatzversicherung,
+            75-... - Teilnahme nicht möglich
+        </p>
+        <label for="inpAge">Ihr Alter:</label>
+        <!-- Mit Attribut for bei Label und id bei input werden diese beiden 
+        Elemente verbunde. Beim Klicken auf label-Text erscheint Kursor im Input-Feld -->
+        <input type="number" id="inpAge" min="7" max="99">
+        <button type="button" id="btnAge">OK</button>
+        <output id="outInfo"></output>
+        <hr>
     </form>
     <script>
         function showInputValue(){
@@ -80,6 +93,38 @@
             text += ' Pizza.';
             outPizza.textContent = text;
         }
+
+        /* try-catch */
+        function trycatch(){
+            let inpValue = inpAge.value;
+            let errorMessage;
+            try{
+                if(isNaN(inpValue.value)){
+                    throw 'Bitte geben Sie eine Zahl ein.';
+                }
+                if(inpValue < 7){
+                    throw 'zu jung';
+                }
+                if(inpValue > 75){
+                    throw 'zu alt';
+                } 
+            }
+            catch (errorMessage){
+                outInfo.textContent = 'Error Message: ' + errorMessage;
+            }
+            finally{
+                if(inpValue >= 7 && inpValue <= 16){
+                    outInfo.textContent = 'Willkommen beim Kindermarathon.'
+                }
+                if(inpValue > 16 && inpValue <= 65){
+                    outInfo.textContent = 'Willkommen beim Marathon.'
+                }
+                if(inpValue > 65 && inpValue <= 75){
+                    outInfo.textContent = 'Willkommen beim Seniorenmarathon.'
+                }
+            }
+        }
+        btnAge.addEventListener('click', trycatch, true);
     </script>
 </body>
 </html>

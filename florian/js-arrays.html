@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js-arrays</title>
+</head>
+<body>
+    
+<!-- p{par $}*3 -->
+<p>par 1</p>
+<p>par 2</p>
+<p>par 3</p>
+
+<!-- p{par $}*3 -->
+<p>par 1</p>
+<p>par 2</p>
+<p>par 3</p>
+
+<script>
+    /* Array erstellen mit Array-Literal */
+    var _softs = ['Cola', 'Fanta', 'Sprite'];
+    console.log(_softs.length); // 3
+    //_softs[3] = 'Wasser';
+    _softs[_softs.length] = 'MezzoMix';
+    console.log(_softs);
+    _softs[1] = 'GingerAle';
+    console.log(_softs);
+    console.log(typeof _softs); // object
+    console.log(_softs instanceof Array); // true
+
+    var _paragraphs = document.getElementsByTagName('p');
+    console.log(_paragraphs);
+
+    _paragraphs[1].textContent = 'Feierabend';
+
+    /* Array erstellen mit Konstruktor */
+    var _weekDays = new Array(7);
+    console.log(_weekDays);
+    var _weekEndDays = new Array('saturday', 'sunday');
+    console.log(_weekEndDays);
+
+    /* associative array */
+    let cities = new Array();
+    cities["Wohnort"] = "Salzburg";
+    cities["Hauptstadt"] = "Wien";
+    cities["Wohnort"] = "Graz";
+    cities["Kulturhauptstadt"] = "Linz";
+
+    console.log(Array.isArray(cities)); // true
+    console.log(cities[0]); // undefined - nur über "Wohnort"
+
+    /* ARRAY METHODS */
+    
+    let blumen = ['Rose', 'Tulpe', 'Narzisse', 'Nelke'];
+    
+    //concat()
+    let rw = blumen.concat(['Gladiole', 'Gänseblümchen']);
+    console.log(rw); // Fügt dem Array 2 stellen hinzu.
+    console.log(blumen); // Zeigt 4 Werte im Array an.
+    
+    //toString()
+    rw = blumen.toString();
+    console.log(rw); // Schreibt das Array als string.
+    console.log(typeof rw); // string
+    console.log(blumen); // Zeigt 4 Werte im Array an.
+
+    //join()
+    rw = blumen.join('|');
+    console.log(rw); // ??
+    console.log(typeof rw); // string
+    console.log(blumen); // Zeigt 4 Werte im Array an.
+
+    //indexOf()
+    rw = blumen.indexOf('Nelke'); 
+    console.log(rw); // Gibt 3 zurück.       
+    console.log(blumen); // Zeigt 4 Werte im Array an.
+
+    //unshift()
+    rw = blumen.unshift('Frühlingsrose');
+    //am Anfang
+    console.log(rw); // 5       
+    console.log(blumen); // Zeigt 5 Werte im Array an.
+
+    //push()
+    rw = blumen.push('Sonnenblume');
+    //am Ende
+    console.log(rw); //       
+    console.log(blumen); // 
+
+    //pop()
+    //löscht letztes
+    rw = blumen.pop();
+    console.log(rw); //      
+    console.log(blumen); // 
+
+    //shift()
+    rw = blumen.shift();
+    console.log(rw); //    
+    console.log(blumen); // 
+
+    //splice()
+    rw = blumen.splice(1, 2, 'Mimöschen', 'Astern');
+    console.log(rw); //       
+    console.log(blumen); // 
+
+    //reverse()
+    rw = blumen.reverse();
+    console.log(rw); //   
+    console.log(blumen); // 
+
+    //map()
+    rw = blumen.map(element => element.length);
+    console.log(rw); // 
+    console.log(blumen); // 
+    
+    /* element => { return 'Rose' !== element}
+    Wenn die Pfeilfunktion nur eine einzige Anweisung hat
+    Und diese Anweisung ist return-Anweisung,
+    dann geschw. Klammern und das Wort return sind optional */
+    
+    //filter()
+    rw = blumen.filter(element => { return 'Rose' !== element})
+    /* 'Rose' !== element sprich wenn element ist nicht gleich Rose */
+    console.log(rw); // 
+    console.log(blumen); // 
+
+    /* ITERATOREN FÜR ARRAYS */
+    let assoziativeBlumen = new Array(3);
+    assoziativeBlumen['Lieblingsblume'] = 'Nelke';
+    assoziativeBlumen['magMutti'] = 'Astern';
+    assoziativeBlumen['Allergieblume'] = 'Mimöschen';
+    console.log(assoziativeBlumen);
+
+    //for in
+    for (let element in assoziativeBlumen) {
+        element.toUpperCase();
+        console.log(element);
+    }
+
+    //for of
+    /* mit assoziativeBlumen hat es nicht funktioniert ???  */
+    for (let el of blumen) {            
+        console.log(el.toUpperCase());
+    }
+
+
+
+    
+    </script>
+</body>
+</html>

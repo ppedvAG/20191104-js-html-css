@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js-objects</title>
+</head>
+<body>
+        <label for="_inputV">VORNAME:</label>
+        <input id="_inputV" type="text">
+        <label for="_inputN">NACHNAME:</label>
+        <input id="_inputN" type="text">
+
+        <label for="_inputA">ALTER:</label>
+        <input id="_inputA" type="number">
+    
+        <button onclick="_giveName(); console.log(_einePerson)">OK</button>
+        <output id="_output"></output>
+
+        <script>
+            var _einePerson = { vorname: '', nachname: ''};
+
+            function _giveName() {
+                _einePerson.vorname = _inputV.value;
+                _einePerson.nachname = _inputN.value;
+                _einePerson.alter = _inputA.value;
+            }
+
+            console.log(typeof _einePerson);            
+            console.log(typeof _inputV);
+            console.log(_inputV);
+
+
+
+            /* Konstruktoren */
+            function Auto(marke, modell, baujahr) {
+                this.marke = marke;
+                this.modell = modell;
+                this.baujahr = baujahr;
+            }
+
+            var _einAuto = new Auto('VW', 'Golf', 1995);
+            var _zweitesAuto = new Auto('BMW', 'X2', 2019);
+            console.log(_einAuto instanceof Auto);
+
+            /* JS-Objekte sind dynamisch */
+            _einePerson.auto1 = _einAuto;
+            _einePerson.auto2 = _zweitesAuto;            
+            console.log(_einePerson);
+
+            /* ITERATOREN */
+            /* gibt Namen von Properties (Eigenschaften) aus */
+            for (let el in _einAuto) {
+                console.log(el);
+            }
+            /* TypeError: _einAuto is not iterable */
+            for (let el of _einAuto) {
+                console.log(el.value);
+            }
+
+        
+        </script>
+    
+</body>
+</html>

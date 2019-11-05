@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css-grid-n-sectioning</title>
+    <style>
+            @media (orientation: landscape) {
+              nav {
+                background-color: darksalmon;
+                grid-column: 1 / 2;
+              }
+              section {
+                background-color: rgb(196, 255, 196);
+                grid-column: 2 / 4;
+              }
+            }
+            @media (orientation: portrait) {
+              nav {
+                background-color: darksalmon;
+                display: none;
+              }
+              section {
+                background-color: rgb(196, 255, 196);
+                grid-column: 1 / 4;
+              }
+            }
+            body {
+              margin: 0;
+            }
+            #container {
+              display: grid;
+              height: 100vh; /* viewport height */
+              grid-template-columns: 1fr 1fr 1fr;
+              grid-template-rows: 15% 70% 15%;
+              grid-gap: 5px;
+            }
+            header {
+              background-color: cornsilk;
+              grid-column: 1 / 4;
+            }
+      
+            footer {
+              background-color: gainsboro;
+              grid-column: 1 / 4;
+            }
+            .item {
+              border: thick solid sandybrown;
+            }
+          </style>
+        </head>
+        <body>
+          <div id="container">
+            <header class="item">Header</header>
+            <nav class="item">Nav</nav>
+            <section class="item">Section</section>
+            <footer class="item">Footer</footer>
+          </div>
+    
+</body>
+</html>

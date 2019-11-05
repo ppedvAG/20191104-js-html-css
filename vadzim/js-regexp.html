@@ -25,6 +25,12 @@
     <h1>string.split(regexp)</h1>
     <p id="outp6"></p>
 
+    <h1>Übung Tel Eingabe</h1>
+
+    <input type="tel" name="telInpName" id="telInpId" pattern="^\+*\d{9,14}" placeholder="+49....">
+    <button id="telBtn">checkTel</button>
+    <p id="telOutp">output</p>
+
     <script>
     
     /* var1 */
@@ -67,6 +73,14 @@ document.getElementById('outp5').innerText = "";
 /* string.split(regexp), rw: array aus strings */
 document.getElementById('outp6').innerText = "";
 //# sourceMappingURL=js-regexp.js.map
+
+/* Übung Telefonnummer */
+function checkTel() {
+    telOutp.innerText = telInpId.checkValidity() === true ? 'valid' : 'invalid';
+}
+telBtn.addEventListener('click', checkTel);
+
+console.log(telInpId);
     
     </script>
     

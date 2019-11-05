@@ -7,12 +7,12 @@
     <title>JS-date-object</title>
 </head>
 <body>
-    <output></output>
+    <output id="clock"></output>
 
     <script>
         /* Datum-Variable erstellen mit der globalen Funktion Date() */
         let datumOhneKonstruktor = Date();
-        console.log(datumOhneKonstruktor); // Wed Jul 31 2019 16:09:50 GMT+0200 (Mitteleuropäische Sommerzeit)
+        console.log(datumOhneKonstruktor); // 
         console.log(typeof datumOhneKonstruktor); // string
 
         /* Datum erstellen mit dem Konstruktor vom Objekt Date */
@@ -26,8 +26,7 @@
 
         //getDay()
         rw = datum.getDay();
-        console.log(rw); // 
-        
+        console.log(rw); //         
 
         //getHours()
         console.log(datum.getHours());
@@ -40,12 +39,29 @@
         
         //getTime()
         console.log(datum.getTime()); // 
+        console.log(Date.now());
 
         //getFullYear()
         console.log(datum.getFullYear());
 
         //toLocaleTimeString()
         console.log(datum.toLocaleTimeString()); // 
+
+        // Übung Digitale Uhr
+        // setInterval(wasSollAusgeführtWerden, wieOft)
+        setInterval(() => {clock.textContent = new Date().toLocaleTimeString()}, 1000);
+
+        /* ADVANCED | ANDERE METHODEN */
+        // getTimezoneOffset()
+        
+        // toLocaleDateString()
+        // setDate()
+        // setFullYear()
+        // setHours()
+        // setMinutes()
+        // setMonth()
+        // setSeconds()
+        // setTime()
 
     </script>
 

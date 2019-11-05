@@ -45,9 +45,9 @@
 
             var _einAuto = new Auto('VW', 'Golf', 1995);
             var _zweitesAuto = new Auto('BMW', 'X2', 2019);
-            // console.log('_einAuto instanceof Auto ' + _einAuto instanceof Auto);
-            // ??? warum oben false, und unten true ?
-            console.log(_einAuto instanceof Auto);
+            console.log('_einAuto instanceof Auto: ' + (_einAuto instanceof Auto)); // _einAuto instanceof Auto true // string 
+            // console.log('_einAuto instanceof Auto ' + _einAuto instanceof Auto); // false
+            // console.log(_einAuto instanceof Auto); // true
 
             /* JS-Objekte sind dynamisch */
             _einePerson.auto1 = _einAuto;

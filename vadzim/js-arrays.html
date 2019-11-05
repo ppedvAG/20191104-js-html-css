@@ -46,65 +46,78 @@
         console.log(Array.isArray(cities)); // true
         console.log(cities[0]); // undefined - nur über "Wohnort"
 
+
         /* ARRAY METHODS */
         
         let blumen = ['Rose', 'Tulpe', 'Narzisse', 'Nelke'];
         
         //concat()
         let rw = blumen.concat(['Gladiole', 'Gänseblümchen']);
-        console.log(rw); // 
-        console.log(blumen); // 
+        console.log(rw); // Array(6)
+        console.log(blumen); // wie früher
         
         //toString()
         rw = blumen.toString();
-        console.log(rw); // 
-        console.log(typeof rw); // 
-        console.log(blumen); // 
+        console.log(rw); // Rose,Tulpe...
+        console.log(typeof rw); // string
+        console.log(blumen); // wie früher
 
         //join()
         rw = blumen.join('|');
-        console.log(rw); // 
-        console.log(typeof rw); // 
-        console.log(blumen); // 
+        console.log(rw); // Rose|Tulpe...
+        console.log(typeof rw); // string
+        console.log(blumen); // wie früher
 
         //indexOf()
         rw = blumen.indexOf('Nelke');
-        console.log(rw); //        
-        console.log(blumen); // 
+        console.log(rw); // 3      
+        console.log(blumen); // unverändert
 
+        // blumen[4] = 'Nelke'
+        // rw = blumen.indexOf('Nelke');
+        console.log(rw); // 3 - der erste Treffer
+        console.log(blumen); //
+
+        console.info('unshift')
         //unshift()
         rw = blumen.unshift('Frühlingsrose');
-        //am Anfang
-        console.log(rw); //        
-        console.log(blumen); // 
+        // fügt am Anfang ein
+        console.log(rw); // 5 - neue Länge vom Array        
+        console.log(blumen); // Array(5) [ "Frühlingsrose", "Rose", "Tulpe", "Narzisse", "Nelke" ]
 
+        console.info('push')
         //push()
         rw = blumen.push('Sonnenblume');
-        //am Ende
+        // fügt am Ende ein
         console.log(rw); //       
         console.log(blumen); // 
 
+        console.info('pop')
         //pop()
         //löscht letztes
         rw = blumen.pop();
         console.log(rw); //      
         console.log(blumen); // 
 
+        console.info('shift')
         //shift()
-        rw = blumen.shift();
-        console.log(rw); //    
-        console.log(blumen); // 
+        rw = blumen.shift(); //löscht das erste El
+        console.log(rw); // Frühlingsrose 
+        console.log(blumen); // verändert
 
+        console.info('splice')
         //splice()
         rw = blumen.splice(1, 2, 'Mimöschen', 'Astern');
         console.log(rw); //       
         console.log(blumen); // 
 
+        console.info('reverse')
         //reverse()
         rw = blumen.reverse();
         console.log(rw); //   
         console.log(blumen); // 
 
+        console.info('map')
         //map()
         rw = blumen.map(element => element.length);
         console.log(rw); // 
@@ -115,6 +128,7 @@
         Und diese Anweisung ist return-Anweisung,
         dann geschw. Klammern und das Wort return sind optional */
         
+        console.info('filter')
         //filter()
         rw = blumen.filter(element => { return 'Rose' !== element})
         /* 'Rose' !== element sprich wenn element ist nicht gleich Rose */
@@ -122,6 +136,7 @@
         console.log(blumen); // 
 
         /* ITERATOREN FÜR ARRAYS */
+        console.info('assoziativeBlumen');
         let assoziativeBlumen = new Array(3);
         assoziativeBlumen['Lieblingsblume'] = 'Nelke';
         assoziativeBlumen['magMutti'] = 'Astern';

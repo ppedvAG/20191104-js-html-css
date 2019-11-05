@@ -28,9 +28,15 @@
     <h3>6. Method cos()</h3>
     <p id="output6"></p>
 
-    <h3>Übung</h3>
-    <p id="outp"></p>
+    <h3>Übung Würfel</h3>    
     <button id="wBtn">Würfele</button>
+    <p id="outp"></p>
+
+    <h3>Übung Lotto</h3>
+    <input type="number" name="lottoInpName" id="lottoInpId">    
+    <!-- <button id="lBtn" onclick="playLotto(lottoInpId.value)">Play Lotto</button> -->
+    <button id="lBtn">Play Lotto</button>
+    <p id="lOutp"></p>
 
     <script>
         let f = 4;
@@ -59,6 +65,17 @@
             console.log(zahl); // zahl zw. 0 und 1
         }
         wBtn.addEventListener('click', würfele);
+
+
+        /* Übung Lotto */
+        function playLotto(zahl) {
+            let lottoArr = Array(6);
+            for (let i = 0; i < 6; i++) {                
+                lottoArr[i] = Math.floor(Math.random() * zahl) + 1;                
+            }
+            lOutp.textContent = lottoArr;
+        }
+        lBtn.addEventListener('click', function(){playLotto(lottoInpId.value)});
     </script>
 
 </body>

@@ -1,45 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>js-math</title>
 </head>
+
 <body>
-        <!-- (h3{$. Method}+p#output$)*5 -->
-        <h3>1. Property PI</h3>
-        <p id="output1"></p>
-    
-        <h3>2. Method random()</h3>
-        <p id="output2"></p>
-    
-        <h3>3. Method random()*number</h3>
-        <p id="output3"></p>
-    
-        <h3>4. Method floor(float)</h3>
-        <p id="output4"></p>
-    
-        <h3>5. Method ceil()</h3>
-        <p id="output5"></p>
-    
-        <h3>6. Method cos()</h3>
-        <p id="output6"></p>
-    
-        <script>
-            //PI
-            output1.textContet = "Math.PI: " + Math.PI;
-            //random()
-            output2.textContet = "Math.random(): " + Math.random();
-            //random()*number
-            output3.textContet = "Math.random()*3: " + Math.random()*3;
-            //floor(float)
-            output4.textContet = "Math.floor(5.3): " + Math.floor(5.3);
-            //ceil(float)        
-            output5.textContet = "Math.ceil(5.3): " + Math.ceil(5.3);        
-            //cos(Math.PI)    
-            output6.textContet = "Math.cos(Math.PI): " + Math.cos(Math.PI);
-        </script>
-    
+    <!-- (h3{$. Method}+p#output$)*5 -->
+    <h3>1. Property PI</h3>
+    <p id="output1"></p>
+
+    <h3>2. Method random()</h3>
+    <p id="output2"></p>
+
+    <h3>3. Method random()*number</h3>
+    <p id="output3"></p>
+
+    <h3>4. Method floor(float)</h3>
+    <p id="output4"></p>
+
+    <h3>5. Method ceil()</h3>
+    <p id="output5"></p>
+
+    <h3>6. Method cos()</h3>
+    <p id="output6"></p>
+
+    <h3>Übung</h3>
+    <p id="outp"></p>
+    <button id="wBtn">Würfele</button>
+
+    <script>
+        let f = 4;
+        let e = '4';
+        console.log(f + e);
+        //PI
+        console.log(Math.PI)
+        /* ??? warum wird hier über textContent nichts ausgegeben, nur mit textContent und innerText */
+        // output1.innerText = "srtgsdrg"
+        output1.innerText = "Math.PI: " + Math.PI;
+        //random()
+        output2.innerText = "Math.random(): " + Math.random();
+        //random()*number
+        output3.innerText = "Math.random()*3: " + Math.random() * 3;
+        //floor(float)
+        output4.innerText = "Math.floor(5.3): " + Math.floor(5.3);
+        //ceil(float)        
+        output5.innerText = "Math.ceil(5.3): " + Math.ceil(5.3);
+        //cos(Math.PI)    
+        output6.innerText = "Math.cos(Math.PI): " + Math.cos(Math.PI);
+
+        /* Übung Würfel */
+        function würfele() {
+            let zahl = Math.floor(Math.random() * 6) + 1;
+            outp.textContent = zahl;
+            console.log(zahl); // zahl zw. 0 und 1
+        }
+        wBtn.addEventListener('click', würfele);
+    </script>
+
 </body>
+
 </html>

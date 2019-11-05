@@ -121,8 +121,6 @@
             let inpValue = inpAge.value;
             let errorMessage;
             console.log(typeof inpValue);
-
-
             try {
                 /* beim leeren Input und beim Text kommt ein leeres String zurück */
                 if (inpValue === "") {
@@ -133,8 +131,7 @@
                 }
                 if (inpValue > 75) {
                     throw 'Teilnahme nicht möglich';
-                }
-                
+                }                
             }
             catch (errorMessage) {
                 outInfo.textContent = 'Error Message: ' + errorMessage;                
@@ -152,7 +149,6 @@
             }
         }
         btnAge.addEventListener('click', trycatch, true);
-
     </script>
 </body>
 

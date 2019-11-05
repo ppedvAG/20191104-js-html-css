@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css-box-model-n-inline-block</title>
+    <style>
+            body {
+                margin: 0;
+                /* default wert ist 8px */
+            }
+    
+            p,
+            span {
+                background-color: lightblue;
+            }
+            .bsp2 {
+                width: 100px;
+                height: 100px;
+            }
+            .bsp3 {
+                
+                border: thin dotted;
+                padding: 10px;
+                /* abstand zw. inhalt u. rahmen */
+                margin: 10px;
+                /* abstand zw. rahmen u. rahmen v. nachbar-element */
+            }
+            #bsp4-1 {
+                border: thin dotted;
+                padding: 10px 20px 30px 40px;
+                /* Die Werte werden im Uhrzeigesinn von oben anfangend angewendet */
+            }
+            #bsp4-2 {
+                border: thin dotted;
+                padding: 10px 30px;
+                /* wert 1 f. oben u. unten, wert 2 f. rechts u. links */
+            }
+            #bsp4-3 {
+                border: thin dotted;
+                padding: 10px 30px 50px;
+                /* wert 1 f. oben, wert 2 f. rechts u. links, wert 3 f. unten */
+            }
+            #bsp4-4 {
+                border: thin dotted;
+                /* padding: 10px 30px 50px; */
+                /* Ausführlich ausgeschrieben */
+                padding-top: 10px;
+                padding-right: 30px;
+                padding-bottom: 50px;
+                padding-left: 30px;
+                /* wert 1 f. oben, wert 2 f. rechts u. links, wert 3 f. unten */
+            }
+            .bsp5 {
+                display: inline-block;
+                width: 100px;
+                height: 100px;
+            }
+    
+        </style>
+    </head>
+    
+    <body>
+        <h1>1. Breite</h1>
+        <h4>Blockelemente (deren Inhalt) sind so breit wie möglich</h4>
+        <h4>Inline-Elemente sind so breit wie nötig</h4>
+    
+        <!-- p{paragraph}*2 -->
+        <p>paragraph</p>
+        <p>paragraph</p>
+    
+        <!--  span{span}*2 -->
+        <span>span</span><span>span</span>
+        <hr>
+        <!-- horizontal ruler -->
+    <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+        
+    <h1>2. Größenangaben</h1>
+    <h4>Inline-Elemente ignorieren die Größenangaben</h4>
+    
+        <!-- p{paragraph}*2 -->
+        <p class="bsp2">paragraph</p>
+        <p class="bsp2">paragraph</p>
+    
+        <!--  span{span}*2 -->
+        <span class="bsp2">span</span><span class="bsp2">span</span>
+        <hr>
+        <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+        <h1>3. CSS-Box</h1>
+        <h4>Inline-Elemente ignorieren margin-top und -bottom</h4>
+        <h4>Die Margin-top und -bottom bei Block-Elementen überlappen sich</h4>
+        <h4>margin-left und -right überlappen sich nicht</h4>
+        
+        <p class="bsp3">paragraph</p>
+        <p class="bsp3">paragraph</p>
+        
+        <span class="bsp3">span</span><span class="bsp3">span</span>
+        <hr>
+        <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+        <h1>4. Margin und Padding Shorthands</h1>
+        <span id="bsp4-1">span</span>
+        <span id="bsp4-2">span</span>
+        <span id="bsp4-3">span</span>
+        <span id="bsp4-4">span</span>
+        <hr>   
+        <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+        <h1>5. Vorteile von beiden (inline & block) kombinieren</h1>
+    
+        <p class="bsp5">paragraph</p>
+        <p class="bsp5">paragraph</p>    
+        <span class="bsp5">span</span>
+        <span class="bsp5">span</span>
+</body>
+</html>

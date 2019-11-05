@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js-arrays</title>
+</head>
+<body>
+
+    <!-- p{par $}*3 -->
+    <p>par 1</p>
+    <p>par 2</p>
+    <p>par 3</p>
+    
+    <script>
+        /* Array erstellen mit Array-Literal */
+        var _softs = ['Cola', 'Fanta', 'Sprite'];
+        console.log(_softs.length); // 3
+        //_softs[3] = 'Wasser';
+        _softs[_softs.length] = 'MezzoMix';
+        console.log(_softs);
+        _softs[1] = 'GingerAle';
+        console.log(_softs);
+        console.log(typeof _softs); // object
+        console.log(_softs instanceof Array); // true
+
+        var _paragraphs = document.getElementsByTagName('p');
+        console.log(_paragraphs);
+
+        _paragraphs[1].textContent = 'Feierabend';
+
+        /* Array erstellen mit Konstruktor */
+        var _weekDays = new Array(7);
+        console.log(_weekDays);
+        var _weekEndDays = new Array('saturday', 'sunday');
+        console.log(_weekEndDays);
+
+        
+        </script>
+    
+</body>
+</html>

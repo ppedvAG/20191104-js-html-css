@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>web worker</title>
+</head>
+
+<body>
+    <p>Count numbers: <output id="result"></output></p>
+    <button onclick="startWorker()">Start Worker</button>
+    <button onclick="stopWorker()">Stop Worker</button>
+    <br>
+    <br>
+
+    <script>
+        var w;
+        function startWorker() {
+            //if (typeof (Worker) !== "undefined") { //For slightly more controlled error handling and backwards compatibility, it is a good idea to wrap your worker accessing code in the following  if (window.Worker) {...}
+            if (typeof (w) == "undefined") {
+                    w = new Worker('webworker.js');
+                }
+                w.onmessage = function (event) {
+                    document.getElementById("result").innerHTML = event.data;
+                };
+            if (window.Worker) {
+                
+            } else {
+                document.getElementById("result").innerHTML = "Sorry! No Web Worker support.";
+            }
+        }
+        function stopWorker() {
+            w.terminate();
+            w = undefined; //wird damit die Variable auch gelöscht?
+        }
+    </script>
+</body>
+
+</html>

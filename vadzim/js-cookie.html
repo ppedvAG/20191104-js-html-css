@@ -30,8 +30,14 @@
             document.cookie = myCookie;
         }
         setCookie("language", "de", 2);
+        let cookieArr = [{id: 5},{id: 6}];
+        setCookie("todos", cookieArr.toString(), 2);
         
         console.log(document.cookie); //string 
+        let objArr = Object.entries({id: 6, key: true});
+
+        out4.innerText = objArr;
+        console.log({id: 6}.toString());
 
         //language=de;expires=Fri, 17 May 2019 14:32:25 GMT;path=/
         function getCookie(cname) {

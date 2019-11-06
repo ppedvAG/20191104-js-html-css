@@ -73,17 +73,11 @@ function addTodo() {
     console.log(todos);
     let todosStringsArray = [];
     for (let i = 0; i < todos.length; i++) {
-        console.log(Object.entries(todos[i])); // Array of arrays
-
-        // todosStringsArray.concat(Object.entries(todos[i]));
-               
-        
-
-    }
-
-    
+        console.log(Object.entries(todos[i]));        
+        todosStringsArray.concat(Object.entries(todos[i]));
         console.log(todosStringsArray);
 
+    }
     setCookie('todos', todosStringsArray.toString(), 2);
 
     // let cookieArr = [{id: 5},{id: 6}];

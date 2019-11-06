@@ -1,4 +1,4 @@
-let todos = [];
+var todos = [];
 
 let collaborators = [];
 
@@ -14,15 +14,30 @@ function getSelected() {
         }
     });
 }
-function showTodoList() {
-
-}
 
 function addTodo() {
     getSelected();
+    navigator.storage.persist().then(persisted => {
+        if(persisted) {
+          /* … */
+        }
+      })
     todos.push(new Todo(todos.length, titleInp.value, false, dlInp.value, collaborators));
     console.log(todos);
-    tlAncer.click();
-    showTodoList();
+    let formObj = window.document.forms[0];
+    for(let prop in formObj) {
+        console.log(prop);
+    }
+    console.info('name');
+    console.log(document.addFormName.addInpName)
+    
+    // tlAncer.click();
+    // showTodoList();
 }
-addInp.addEventListener('click', addTodo);
+
+document.addFormName.addInpName.addEventListener('click', addTodo);
+// getElementById(newFunction()).addEventListener('click', addTodo);
+
+function newFunction() {
+    return 'addInp';
+}

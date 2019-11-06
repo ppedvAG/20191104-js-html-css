@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>add todo</title>
 </head>
+
 <body>
-        <nav>
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a id="tlAncer" href="todolist.html">TODO LIST</a></li>
-                    <li><a href="addtodo.html">ADD TODO</a></li>
-                    <li><a href="edittodo.html">EDIT TODO</a></li>
-                    <li><a href="collaborators.html">COLLABORATORS</a></li>
-                </ul>
-            </nav>
-            <h1>ADD TODO</h1>
-            <form action="">
-                <input type="text" id="titleInp" placeholder="todo title">                
-                <input type="date" id="dlInp" placeholder="deadline">
-                <label for="alex">alex <input type="checkbox" id="alex" name="inpCheck" value="alexander"></label>
-                <label for="rico">rico <input type="checkbox" id="rico" name="inpCheck" value="enrico"></label>
-                <label for="flo">flo <input type="checkbox" id="flo" name="inpCheck" value="florian"></label>
-                <label for="vad">vad <input type="checkbox" id="vad" name="inpCheck" value="vadzim"></label>
-                <input type="button" id="addInp" value="ADD">
-            </form>
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a id="tlAncer" href="todolist.html">TODO LIST</a></li>
+            <li><a href="addtodo.html">ADD TODO</a></li>
+            <li><a href="edittodo.html">EDIT TODO</a></li>
+            <li><a href="collaborators.html">COLLABORATORS</a></li>
+        </ul>
+    </nav>
+    <h1>ADD TODO</h1>
+    <form action="" name="addFormName">
+        <input type="text" id="titleInp" placeholder="todo title">
+        <input type="date" id="dlInp" placeholder="deadline">
+        <label for="alex">alex <input type="checkbox" id="alex" name="inpCheck" value="alexander"></label>
+        <label for="rico">rico <input type="checkbox" id="rico" name="inpCheck" value="enrico"></label>
+        <label for="flo">flo <input type="checkbox" id="flo" name="inpCheck" value="florian"></label>
+        <label for="vad">vad <input type="checkbox" id="vad" name="inpCheck" value="vadzim"></label>
+        <input type="button" id="addInpId" name="addInpName"  value="ADD">
+        <!-- onclick="addTodo()" -->
+    </form>
 
     <script src="todo.js"></script>
     <script src="todos.js"></script>
 </body>
+
 </html>

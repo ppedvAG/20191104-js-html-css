@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css-animation</title>
+    <style>
+        div {
+            border: thin solid;
+            animation: testanimation 3s infinite ease-in-out alternate;
+        }        
+
+        @keyframes testanimation {
+           /*  from {
+                color: black;
+                padding: 0;
+            }
+
+            to {
+                color: lime;
+                padding: 50px;
+            } */
+            0% {
+                color: black;
+                padding: 0;
+            }
+            50% {
+                color: brown;
+                padding: 40px;
+            }
+            100% {
+                color: lime;
+                padding: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>test</div>
+    
+</body>
+</html>

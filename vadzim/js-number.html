@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js-number</title>
+</head>
+
+<body>
+    <!-- (h3{Methode$ :}+p#outp$)*9 -->
+    <h3>Methode1 : toExponential()</h3>
+    <p id="outp1"></p>
+
+    <h3>Methode2 : toFixed()</h3>
+    <p id="outp2"></p>
+
+    <h3>Methode3 : toSource()</h3>
+    <p id="outp3"></p>
+
+    <h3>Methode4 : toString()</h3>
+    <p id="outp4"></p>
+
+    <h3>Methode5 : valueOf()</h3>
+    <p id="outp5"></p>
+
+    <h3>Methode6 : Number.isFinite()</h3>
+    <p id="outp6"></p>
+
+    <h3>Methode7 : Number.parseInt()</h3>
+    <p id="outp7"></p>
+
+    <h3>Methode8 : Number.parseFloat()</h3>
+    <p id="outp8"></p>
+
+    <h3>Methode9 : Number.isInteger()</h3>
+    <p id="outp9"></p>
+
+    <script>
+
+        /* Number mit Literal */
+
+        let nr1 = 5;
+
+        /* Number mit der globalen Funktion */
+
+        let nr2 = Number(6);
+
+        /* Number mit Konstruktur */
+
+        let nr3 = new Number(3);
+
+        // toExponential()
+        outp1.innerText = 77.12345.toExponential(); // 7.712345e+1
+
+        // toFixed()
+        // outp2.innerText = 10.1234.toFixed();
+        // outp2.innerText = 10.1234.toFixed(1);
+        outp2.innerText = 10.1234.toFixed(2);
+
+        // toSource()
+        outp3.innerText = 153.3563.toSource();
+
+        // toString()
+        outp4.innerText = typeof 56.2456.toString();
+        // Number.prototype.toLocaleString()
+        // outp4.innerText = 56.2456.toLocaleString(); // 56,246
+
+        // valueOf()
+        outp5.innerText = 167.000000000000001.valueOf(); // 167
+
+        // Number.isFinite()
+        outp6.innerText = Number.isFinite(1 / 0); // false
+
+        // Number.parseInt()
+        outp7.innerText = String(Number.parseInt('101', 2)); // 5
+        // outp7.innerText = String(Number.parseInt(' 0xF', 16)); // 15
+
+        // Number.parseFloat()
+        outp8.innerText = Number.parseFloat('6.2456sfhdfth'); // 6.2456
+
+
+        // Number.isInteger()
+        outp9.innerText = Number.isInteger(7.712345e+1); // false
+
+
+        // Number.prototype.toSource()
+        // Number.prototype.toString()
+        // Number.prototype.valueOf()
+
+         // Number.prototype.toExponential()
+        // Number.prototype.toFixed()
+        // Number.isNaN()
+        // Number.isSafeInteger()
+
+               // Number.prototype.toPrecision()
+
+
+    </script>
+</body>
+
+</html>
